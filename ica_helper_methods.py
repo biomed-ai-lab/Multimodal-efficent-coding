@@ -195,7 +195,8 @@ def collectPatchesAudio(file):
     spf = wave.open('audio/' + file + '.wav','r')
     # extract raw audio from .wav file
     signal = spf.readframes(-1)
-    signal = np.frombuffer(signal, 'Int16')
+    # signal = np.frombuffer(signal, 'Int16')
+    signal = np.frombuffer(signal, np.int16)
     fs = spf.getframerate()
     print(fs)
     numSamples = len(signal)
